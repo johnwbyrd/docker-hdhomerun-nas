@@ -17,12 +17,12 @@ For example, it's possible to run the HDHomeRun RECORD engine on Synology NAS de
 	* On my Synology NAS, I used the Shared Folders control panel item to create a share called "HDHomeRun" which shares the directory /volume1/HDHomeRun . 
 * Run the following commands.
 ```Shell
-git clone https://www.github.com/johnwbyrd/docker-synology-hdhomerun
-docker build -t johnwbyrd/docker-synology-hdhomerun .
+git clone https://www.github.com/johnwbyrd/docker-hdhomerun-nas
+docker build -t johnwbyrd/docker-hdhomerun-nas .
 ```
 * On the next line, you'll need to replace *$your_share* with the share that you chose before.  In my case, I use "/volume1/HDHomeRun".
 ```Shell
-docker run -d --net=host --restart always -v $your_share:/hdhomerun/video:rw johnwbyrd/docker-synology-hdhomerun
+docker run -d --net=host --restart always -v $your_share:/hdhomerun/video:rw johnwbyrd/docker-hdhomerun-nas
 ```
 	
 # Notes
