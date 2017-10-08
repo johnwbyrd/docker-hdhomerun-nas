@@ -1,4 +1,4 @@
-# Docker image for HDHomeRun on Synology
+# Docker image for HDHomeRun on NAS
 
 This is a Dockerfile for running the [HDHomeRun RECORD](https://www.silicondust.com/dvr-service/) software on certain network attached storage (NAS) devices.  This approach assumes that you already have a NAS present to store your videos, and you want to run HDHomeRun on it in a way that will survive reboots.
 For example, it's possible to run the HDHomeRun RECORD engine on Synology NAS devices; however, the software won't survive a reboot of the NAS.  Using docker, we can make the HDHomeRun RECORD engine persist operation across reboots.
@@ -22,7 +22,7 @@ docker build -t johnwbyrd/docker-synology-hdhomerun .
 ```
 * On the next line, you'll need to replace *$your_share* with the share that you chose before.  In my case, I use "/volume1/HDHomeRun".
 ```Shell
-docker run -d --net=host --restart always -v *$your_share*:/hdhomerun/video:rw johnwbyrd/docker-synology-hdhomerun
+docker run -d --net=host --restart always -v $your_share:/hdhomerun/video:rw johnwbyrd/docker-synology-hdhomerun
 ```
 	
 # Notes
