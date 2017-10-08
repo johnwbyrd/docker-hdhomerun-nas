@@ -16,10 +16,14 @@ For example, it's possible to run the HDHomeRun RECORD engine on Synology NAS de
 * If you have not done so, create a shared directory or mount on the NAS device, name it, and give it appropriate permissions for your network.  Your video recordings are going to go here.  I'll refer to this shared directory *$your_share*.
 	* On my Synology NAS, I used the Shared Folders control panel item to create a share called "HDHomeRun" which shares the directory /volume1/HDHomeRun . 
 * Run the following commands.
-	> git clone https://www.github.com/johnwbyrd/docker-synology-hdhomerun
-	> docker build -t johnwbyrd/docker-synology-hdhomerun .
+```Shell
+git clone https://www.github.com/johnwbyrd/docker-synology-hdhomerun
+docker build -t johnwbyrd/docker-synology-hdhomerun .
+```
 * On the next line, you'll need to replace *$your_share* with the share that you chose before.  In my case, I use "/volume1/HDHomeRun".
-	> docker run -d --net=host --restart always -v *$your_share*:/hdhomerun/video:rw johnwbyrd/docker-synology-hdhomerun
+```Shell
+docker run -d --net=host --restart always -v *$your_share*:/hdhomerun/video:rw johnwbyrd/docker-synology-hdhomerun
+```
 	
 # Notes
 
